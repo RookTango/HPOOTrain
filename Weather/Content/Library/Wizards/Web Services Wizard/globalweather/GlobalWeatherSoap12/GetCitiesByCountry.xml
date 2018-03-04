@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="dfb0e38b-67be-4e55-9997-77b09c8c5b62">
+  <descriptionCdata><![CDATA[dfb0e38b-67be-4e55-9997-77b09c8c5b62.96f86035-d324-421c-a3cf-b267861b3f40.description=<pre>Invokes web service methods.  This operation should not be used directly\!  Please use the wizard to build flows that use this operation.\n\nInputs\:\n    xmlTemplate - The template of the soap request to make.\n    inputMap - A map used to map between template names and user-friendly names. The tamplate names are pipe-delimited xpaths of the xmltemplate location, with a numerical element for lists.\n    url - The url to Post to. \n    header_SOAPAction - The SOAPAction http header field, defined by many web services for indicating the intent of the request\n    wswAuthenticationType - The authentication type to use for the username and password input.\nDefault value\: http\nValid values\: http, ntlm, ws-security digest, ws-security text\n    WSSecuritySignRequest - Should the SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityEncryptRequest - Should the entire SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityTimestampRequest - Should the Timestamp attribute be added to the WS-Security header\nDefault value\: false\nValid values true, false\n    WSSecurityKeystore - Keystore to use for encrypting and signing requests.\n    WSSecurityKeystoreType - The type of WSSecurityKeystore.\n    WSSecurityKeystorePassword - The password for WSSecurityKeystore.\n    contentType - Value to be used in the Content-Type HTTP header.\n    characterSet - The character set for HTTP Get request and response.\nDefault value\: UTF-8\n    username - The username to use for authenticating with the web service. For NTLM authentication, the required format is domain\\user.\n    password - The password to use for authenticating with the web service.\n    trustAllRoots - Enables weak security over SSL. A SSH certificate is trusted even if no trusted CA issued it.\nDefault value\: false\nValid values\: true, false\n    useCookies - Enables cookie tracking. Cookies will be stored between consecutive calls.\nDefault value\: false\nValid values\: true, false\n    usesJSON - Use JSON arrays for the SOAP Request for all Array types.\nDefault value\: false\nValid values\: true, false\n    timeout - a timeout after which the connection should be terminated or 0 for no timeout.\n    socketTimeout - The time to wait for data to be retrieved, in milliseconds. This input needs a value greater than or equal to zero. A &lt;socketTimeout&gt; value of '0' represents an infinite timeout.\nDefault value\: 0\n    proxy - A proxy to use when accessing the web service.\n    proxyPort - A port on the proxy to connect to.\n    proxyUsername - A username to use when connecting to the proxy.\n    proxyPassword - A password to use when connecting to the proxy.\n    keystore - The path to the keystore to use for SSL Client Certificates when using http authentication.\n    keystorePassword - The password for the keystore when using http authentication.\n    ICONCLUDE_WSW_VERSION - This value is used internally by the operation.\n    returnXMLRequest - If this input is set to true, a new output named rawXMLRequest is returned from the operation which contains the text of the SOAP request that will be sent. This can be very valuable in troubleshooting.\nDefault value\: false\nValid values\: true, false\n\nResponses\:\n    success - SOAP request completed successfully.\n    failure - Something went wrong.\n\nReturns\:\n    document - Raw XML response.\n    documentStripped - Raw XML response stripped of namespaces for ease in parsing with XML XPath operations.\n    jsonStripped - Raw XML response stripped of namespaces for ease in parsing with JSON operations, input usesJSON must be set to true for this to be populated.\n\nNotes\:\n1.If wswAuthenticationType\=ws-security text then this operation transmits passwords in clear-text.\n2.Any additional inputs that follow these are added by the Web Service Wizard, and they are specific to the particular web service method being called.\n3.If you add new step-level inputs with the name header_&lt;headername&gt;, where &lt;headername&gt; is the name of an html header, then that html header will be set to the given value in the HTTP request.\n\n</pre>
+dfb0e38b-67be-4e55-9997-77b09c8c5b62.d3d5a506-bc87-4726-bcf7-0a94017c8a84.description=<pre>\n\n</pre>
+dfb0e38b-67be-4e55-9997-77b09c8c5b62.d8804cc7-02dd-4e84-b947-cf7abf1ec596.description=<pre>\n\n</pre>
+dfb0e38b-67be-4e55-9997-77b09c8c5b62.description=<pre>\nThis subflow was created by the Web Services Wizard to invoke the GetCitiesByCountry operation on http\://www.webservicex.com/globalweather.asmx?WSDL. Note that the inputs to this flow which correspond to web service inputs are optional inputs.  This is due to the fact that web services definitions usually incorrectly indicate that too many inputs are required, and mirroring those settings in the flow would force you to enter unused values when running the flow.  The xmlTemplate input on the Invoke Method 2 step of this flow contains a template of the xml message to be sent, and the fields preceded by the comment "<\!--Optional\:-->" or "<\!--zero or more repetitions-->" are those which the web service indicates are optional; all others are indicated to be required.\n\nInputs\:\n    webserviceHost - The host that is running the web service\n    webservicePort - The port on the host running the web service\n    GetCitiesByCountry.CountryName - The input named GetCitiesByCountry|CountryName of the complex type\: GetCitiesByCountry\n\nResults\:\n    document - The raw XML response of the web service\n    documentStripped - The XML response of the web service stripped of namespaces\n    GetCitiesByCountryResult - The output given by the XPath\: /Envelope/Body/GetCitiesByCountryResponse/GetCitiesByCountryResult/text()\n\nResponses\:\n    success - The SOAP command was accepted by the web service\n    failure - Something went wrong while making the SOAP request\n</pre>
+]]></descriptionCdata>
+  <annotation>dfb0e38b-67be-4e55-9997-77b09c8c5b62.description</annotation>
+  <name>GetCitiesByCountry</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="6c28a74d-a952-4cfa-9334-609619b8cf67">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webserviceHost</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Weather_WebService_Host}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4a77d6fe-72a9-48db-9164-2f0e7235cfd5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webservicePort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Weather_WebService_Port}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="fb4cc0dd-e8d0-45c7-a434-1fdcb5b880d8">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GetCitiesByCountry.CountryName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="8741ea86-97f8-4967-8ee4-232eccccc5fe">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="5cee5efc-4806-43a3-8cf4-7ed3de8021de">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="07d5ce9d-ffa6-444d-be6c-eabf19b942f2">
+    <annotation></annotation>
+    <name>document</name>
+    <fieldName>document</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="cfcabde8-964c-4436-a4d6-87bf04211ad3">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>false</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>false</historyCheckPointFlow>
+  <steps>
+    <step id="96f86035-d324-421c-a3cf-b267861b3f40">
+      <annotation>dfb0e38b-67be-4e55-9997-77b09c8c5b62.96f86035-d324-421c-a3cf-b267861b3f40.description</annotation>
+      <name>Invoke Method 2</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>Invoke Method 2</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="fda96105-364a-4f29-a924-f8acd529ba61">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http://${webserviceHost}:${webservicePort}/globalweather.asmx</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="35c8823b-4536-4e83-88d0-96e0c4627e40">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>xmlTemplate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:web=&quot;http://www.webserviceX.NET&quot;&gt;
+   &lt;soap:Header/&gt;
+   &lt;soap:Body&gt;
+      &lt;web:GetCitiesByCountry&gt;
+         &lt;!--Optional:--&gt;
+         &lt;web:CountryName&gt;?&lt;/web:CountryName&gt;
+      &lt;/web:GetCitiesByCountry&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6ff97f40-dd81-428a-89ad-64ec7faffe90">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>header_SOAPAction</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http://www.webserviceX.NET/GetCitiesByCountry</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8c71b5f2-5f1f-402a-8c2a-d9220c7ee2e3">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>inputMap</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>GetCitiesByCountry|CountryName=GetCitiesByCountry.CountryName</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3f1e2514-20e3-43f8-bd9c-29fee5517b10">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>usesJSON</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e2bae9b3-b02d-43ab-ad7f-18d11b8d28fc">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>wswAuthenticationType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4d6b6935-6eea-4d0f-9dc8-1ab693888a15">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecuritySignRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="87976a56-aa52-4fc6-a86c-35e6ddb74b7f">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityEncryptRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ffcb8d94-18e4-45b9-a1bb-ea1f2d428476">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityTimestampRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="59e4dc93-77a1-4c79-855f-9b6fb916c7c2">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9a963b51-2ff6-4904-bb70-16e43dbbd129">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystoreType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="37e86ceb-0564-494c-bbf7-c5e7f03acd81">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4412f3a4-044b-4955-aa5c-f23d2f019859">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>contentType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>text/xml</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="00a4096a-a3af-4124-9783-f8f6440b302c">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UTF-8</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7bb66a14-6583-4a6c-b4b4-5f14fbfb4eb1">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="05d243f1-08bd-43ac-af66-d47d2e52747e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d21c895d-fc5b-417c-9c8a-195a0a4af0df">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>trustAllRoots</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4d3bfce5-7ad4-4fc0-9f58-dfe3bccb6629">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>useCookies</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="de1e3555-0656-4c20-89ea-36d470dbf1e0">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="469254c9-d8f5-46df-93ae-399a1b2b54b0">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>socketTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="89f06325-7c5d-4f39-92f1-1fe8cfb587f2">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="19cdd8d0-c921-48eb-84a7-9d291ff7ccc4">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f4341be4-92a8-42ee-9126-b844f32e7f8a">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="02d8b589-1cff-4065-88ab-f870f4fcc877">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="71cf593d-af4d-45e0-85de-778e1638e7f5">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="525c4887-1f55-442c-8405-cb81ed16b6cb">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ab18050f-f393-4a10-b829-7dd4f89aec79">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>ICONCLUDE_WSW_VERSION</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="bb65a245-568d-4057-91e9-2e62a20e7b66">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>returnXMLRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7c06ed3d-df4f-4ea2-981a-9e72ccc84617">
+          <fromContextKey>GetCitiesByCountry.CountryName</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GetCitiesByCountry.CountryName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="d2939395-935b-4fed-a19f-3650c1a21756">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>d3d5a506-bc87-4726-bcf7-0a94017c8a84</refId>
+          </destination>
+          <source>
+            <refId>96f86035-d324-421c-a3cf-b267861b3f40</refId>
+          </source>
+          <positions/>
+        </transition>
+        <transition id="916d1dbe-7647-448f-9a71-2dcdaec94431">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>d8804cc7-02dd-4e84-b947-cf7abf1ec596</refId>
+          </destination>
+          <source>
+            <refId>96f86035-d324-421c-a3cf-b267861b3f40</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>962ffbf8-4105-46bb-8c71-84f037c4de61</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="683022bf-3dcd-4b0e-9af4-f2dfaf34b6af">
+          <annotation></annotation>
+          <name>document</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>document</contextKey>
+          <expression id="76bb538b-22f0-4fce-b3a1-88a3dd2bc924">
+            <annotation></annotation>
+            <name>document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="5a6587cb-6c06-44a7-88a5-e22582431104">
+          <annotation></annotation>
+          <name>documentStripped</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>documentStripped</contextKey>
+          <expression id="6ee0e4b8-983c-40fd-9ce9-ca1677289370">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="0ef90166-f6da-42fb-9d59-a177154f3f7d">
+          <annotation></annotation>
+          <name>GetCitiesByCountryResult</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>GetCitiesByCountryResult</contextKey>
+          <expression id="f8ef2ac5-0936-4e07-a41a-b3ce7b4e436a">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="225b44e8-14ce-4749-9a8b-c1450a72e285">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/GetCitiesByCountryResponse/GetCitiesByCountryResult/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="d8804cc7-02dd-4e84-b947-cf7abf1ec596">
+      <annotation>dfb0e38b-67be-4e55-9997-77b09c8c5b62.d8804cc7-02dd-4e84-b947-cf7abf1ec596.description</annotation>
+      <name>ERROR : failure</name>
+      <bounds>
+        <x>150.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>ERROR : failure</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="46e0a541-48b0-4029-afac-f5e8c09cecf3">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>d8804cc7-02dd-4e84-b947-cf7abf1ec596</refId>
+          </destination>
+          <source>
+            <refId>d8804cc7-02dd-4e84-b947-cf7abf1ec596</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="d3d5a506-bc87-4726-bcf7-0a94017c8a84">
+      <annotation>dfb0e38b-67be-4e55-9997-77b09c8c5b62.d3d5a506-bc87-4726-bcf7-0a94017c8a84.description</annotation>
+      <name>RESOLVED : success</name>
+      <bounds>
+        <x>0.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>RESOLVED : success</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="ac104a25-1237-4ff1-b555-6769de89e9db">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>d3d5a506-bc87-4726-bcf7-0a94017c8a84</refId>
+          </destination>
+          <source>
+            <refId>d3d5a506-bc87-4726-bcf7-0a94017c8a84</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>96f86035-d324-421c-a3cf-b267861b3f40</startSteps>
+</flow>

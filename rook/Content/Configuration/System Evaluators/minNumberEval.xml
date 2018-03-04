@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<regexEvaluator id="e4435fe3-a338-463f-8b62-9b7ef82febae">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>minNumberEval</name>
+  <entireString>true</entireString>
+  <expression>([1-9]|[1-8][0-9]|9[0-9]|1[0-5][0-9]|16[0-8])</expression>
+  <ignoreCase>false</ignoreCase>
+  <multiLine>false</multiLine>
+  <regType>JAVA</regType>
+</regexEvaluator>

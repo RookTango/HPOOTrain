@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<regexFilter id="3a5c0675-6257-4309-9666-30db7bbce163">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>IPAddress</name>
+  <expression>.*</expression>
+  <ignoreCase>false</ignoreCase>
+  <regType>JAVA</regType>
+  <entireString>true</entireString>
+  <multiLine>false</multiLine>
+</regexFilter>

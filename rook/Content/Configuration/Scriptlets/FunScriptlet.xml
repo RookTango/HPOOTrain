@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scriptlet id="3f4bbc95-e4a5-421b-8e42-361ee308c0ac">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>FunScriptlet</name>
+  <script>// This template shows how to access operation return data, inputs and context data 
+// and how to set context data, responses and results. 
+ 
+// To access an input simply refer to the input name from the Inputs panel.  For example: 
+myData = inputName; 
+ 
+// To access the context instance of the current branch: 
+myBranchData = scriptletBranchContext.get(&quot;myBranchVarName&quot;); 
+ 
+// To get value associated with the context key myContextKey: 
+myContextData = scriptletContext.get(&quot;myContextKey&quot;); 
+ 
+// To get value associated with the context key myContextKey from the local context: 
+myContextData = scriptletContext.getLocal(&quot;myContextKey&quot;); 
+ 
+// To access the return code from a command line or script (note it is a string and must 
+// be converted into an integer for numeric processing): 
+code = parseInt(scriptletRawResult[&apos;Code&apos;]); 
+ 
+// To access the output from the operation (for example stdout): 
+data = scriptletRawResult[&apos;Output String&apos;]; 
+ 
+// To access the error string from the operation (for example stderr): 
+error = scriptletRawResult[&apos;Error String&apos;]; 
+ 
+// Other operations may have different result variables available.  To see the list for 
+// a particular operation open the &quot;Result from Field&quot; dropdown on the Outputs tab 
+ 
+// To set the response of the operation (must match one of the responses from the Responses tab): 
+scriptletResponse = &quot;success&quot;; 
+ 
+// To set the result of the operation 
+scriptletResult = &quot;Your Result Here&quot;; 
+ 
+// Use the context to hold data for use by other steps.  It is also helpful to place information 
+// into the context to examine variables when developing and debugging scriptlets. 
+// For example to place the OutputString information into a context key called &apos;Output&apos;: 
+scriptletContext.putGlobal(&quot;Output&quot;, data); 
+ 
+// Note that the Key and Value are both strings.  For example to place &apos;code&apos; into the context: 
+scriptletContext.putGlobal(&quot;Code&quot;, code.toString()); 
+ 
+// You can also place data into the local context, which means it will only be available to 
+// the current flow, but not to its parent flow or other subflows.  To do this: 
+scriptletContext.put(&quot;LocalVariable&quot;,&quot;LocalValue&quot;); 
+ 
+// ===========================================================================================
+// |  Note: You should avoid making scriptlets too long. When the scriptlets are compiled,   |
+// |  if they are larger than 64k, you get an exception upon trying to save the flow. Also,  |
+// |  the exception will occur anytime you try to access that flow, even if you              |
+// |  restart Studio.                                                                        |
+// ===========================================================================================</script>
+  <type>RHINO</type>
+</scriptlet>

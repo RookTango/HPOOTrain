@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selectionList id="74cf6a0a-5b18-4644-b131-f4ff8039b5f7">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>NameOfCompany</name>
+  <storage>
+    <string>Tesco</string>
+    <string>Infosys</string>
+    <string>Wipro</string>
+    <string>WellsFargo</string>
+  </storage>
+</selectionList>

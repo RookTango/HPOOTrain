@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<regexEvaluator id="a5446374-712f-4353-a108-7b0b6bf59a74">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>maxNumberEval</name>
+  <entireString>true</entireString>
+  <expression>([1-9]|[1-8][0-9]|9[0-9]|1[0-5][0-9]|16[0-9])</expression>
+  <ignoreCase>false</ignoreCase>
+  <multiLine>false</multiLine>
+  <regType>JAVA</regType>
+</regexEvaluator>

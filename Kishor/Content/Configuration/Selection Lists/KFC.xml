@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selectionList id="9d4ba47e-3966-4670-9076-8947be77963c">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>KFC</name>
+  <storage>
+    <string>Chicken</string>
+    <string>Veg</string>
+    <string>Fish</string>
+  </storage>
+</selectionList>
