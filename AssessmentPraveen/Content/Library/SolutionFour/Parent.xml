@@ -5,12 +5,21 @@
   <annotation></annotation>
   <name>Parent</name>
   <categories/>
-  <inputs/>
-  <scriptlet id="1fb5a08e-9b70-42f5-aaf4-9fe8d789a9b8">
-    <annotation></annotation>
-    <name>Operation Parent (f27db704-5df1-45b8-95fd-6f40e51f963c)</name>
-    <type>RHINO</type>
-  </scriptlet>
+  <inputs>
+    <staticBinding id="1596a66a-b489-4d3b-aa06-bbdc4220bc42">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Sample</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
   <possibleResponses>
     <opResponse id="a5b2efa8-a7d7-4d87-a719-f0d4c73efb15">
       <annotation></annotation>
@@ -441,50 +450,6 @@
       <assignments/>
       <throttleSize>0</throttleSize>
     </step>
-    <returnStep id="96430ad9-464c-455c-bb8c-9a623ce39172">
-      <annotation></annotation>
-      <name>Resolved : success</name>
-      <bounds>
-        <x>143.0</x>
-        <y>192.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings/>
-      <transitions>
-        <transition id="f785b709-f2f4-46f9-a96d-63035d8547d2">
-          <annotation></annotation>
-          <name>return</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>96430ad9-464c-455c-bb8c-9a623ce39172</refId>
-          </destination>
-          <source>
-            <refId>96430ad9-464c-455c-bb8c-9a623ce39172</refId>
-          </source>
-          <positions/>
-        </transition>
-      </transitions>
-      <properties/>
-      <returnStepType>RESOLVED</returnStepType>
-      <assignments/>
-    </returnStep>
     <returnStep id="f05c95b3-1d85-47d2-bebb-cc4a0d7eda56">
       <annotation></annotation>
       <name>Error : failure</name>
@@ -527,6 +492,50 @@
       </transitions>
       <properties/>
       <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="96430ad9-464c-455c-bb8c-9a623ce39172">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>143.0</x>
+        <y>192.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="f785b709-f2f4-46f9-a96d-63035d8547d2">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>96430ad9-464c-455c-bb8c-9a623ce39172</refId>
+          </destination>
+          <source>
+            <refId>96430ad9-464c-455c-bb8c-9a623ce39172</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
       <assignments/>
     </returnStep>
   </steps>
